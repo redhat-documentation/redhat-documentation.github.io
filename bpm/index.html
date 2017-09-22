@@ -5,8 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.4">
-<meta name="author" content="Red Hat Content Services, Tomas Radej">
-<title>KIE/BxMS Internal Documentation Contributor Guide</title>
+<title>KIE/BPM Internal Documentation Contributor Guide</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -421,12 +420,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
-<h1>KIE/BxMS Internal Documentation Contributor Guide</h1>
-<div class="details">
-<span id="author" class="author">Red Hat Content Services</span><br>
-<span id="author2" class="author">Tomas Radej</span><br>
-<span id="email2" class="email"><a href="mailto:tradej@redhat.com">tradej@redhat.com</a></span><br>
-</div>
+<h1>KIE/BPM Internal Documentation Contributor Guide</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -468,10 +462,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#cherry_picking_branches">3.2. Cherry-picking Changes Between Branches</a></li>
 </ul>
 </li>
-<li><a href="#_building_and_previewing">4. Building and Previewing</a>
+<li><a href="#building_locally">4. Building and Previewing</a>
 <ul class="sectlevel2">
-<li><a href="#building_locally">4.1. Building Locally with Asciidoctor</a></li>
-<li><a href="#building_locally">4.2. Building Locally with ccutil</a></li>
+<li><a href="#_building_locally_with_asciidoctor">4.1. Building Locally with Asciidoctor</a></li>
+<li><a href="#_building_locally_with_ccutil">4.2. Building Locally with ccutil</a></li>
 <li><a href="#_building_locally_with_maven">4.3. Building Locally with Maven</a></li>
 <li><a href="#_building_in_pantheon">4.4. Building in Pantheon</a></li>
 </ul>
@@ -507,7 +501,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#_style_requirements">Style Requirements</a>
+<li><a href="#style_requirements">Style Requirements</a>
 <ul class="sectlevel1">
 <li><a href="#mod_doc_conventions">7. Modular Documentation Conventions</a>
 <ul class="sectlevel2">
@@ -547,7 +541,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>For KIE/BxMS
+<p>For KIE/BPM
 documentation team members</p>
 </div>
 </div>
@@ -556,10 +550,29 @@ documentation team members</p>
 <h2 id="_introduction">Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This guide provides information about the source repository for documentation of Drools and jBPM (community software), and BRMS and BPM Suite (Red Hat enterprise products), including its workflow, and the rules you must follow when contributing documentation to the repository.</p>
+<p>This guide provides information about the source repository for documentation of Drools and jBPM (KIE community software), and Red Hat JBoss BPM Suite and Red Hat JBoss BRMS (Red Hat enterprise products), including its workflow, and the rules you must follow when contributing documentation to the repository.</p>
 </div>
 <div class="paragraph">
 <p>This guide applies to both the community and enterprise versions, with the differences in content and/or process spelled out explicitly. If you have any questions, <a href="#_contact_information">contact us</a>.</p>
+</div>
+<div class="paragraph">
+<p>Product names are abbreviated as follows throughout this guide:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>KIE:</strong> Knowledge Is Everything, open source community group for business management software</p>
+</li>
+<li>
+<p><strong>BPM:</strong> Red Hat Business Process Management products, including Red Hat JBoss BPM Suite and Red Hat JBoss BRMS</p>
+</li>
+<li>
+<p><strong>KIE/BPM:</strong> Both KIE community and Red Hat BPM products, such as the KIE/BPM shared <a href="https://github.com/kiegroup/kie-docs">kie-docs</a> repository</p>
+</li>
+<li>
+<p><strong>BXMS:</strong> Internal abbreviation for all Red Hat BPM products, used only in reference to internal Red Hat projects and tools (example: <a href="#jira-introduction-technical">BXMSDOC JIRA Project</a>)</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>To get started, read the <a href="#_contributing">Contributing to the kie-docs Repository</a> section.</p>
@@ -573,7 +586,7 @@ documentation team members</p>
 <p><em>Repository, Files, and Processes</em></p>
 </div>
 <div class="paragraph">
-<p>This section contains information about the source code, repository, and processes that are required when working with the KIE/BxMS repository.</p>
+<p>This section contains information about the source code, repository, and processes that are required when working with the KIE/BPM repository.</p>
 </div>
 </div>
 </div>
@@ -583,7 +596,7 @@ documentation team members</p>
 <div class="sect2">
 <h3 id="_system_requirements">1.1. System Requirements</h3>
 <div class="paragraph">
-<p>To work with the KIE/BxMS repository, you need the following software:</p>
+<p>To work with the KIE/BPM repository, you need the following software:</p>
 </div>
 <div class="sect3">
 <h4 id="_required">1.1.1. Required</h4>
@@ -689,7 +702,7 @@ documentation team members</p>
 <div class="sect3">
 <h4 id="_repository_location">1.2.1. Repository Location</h4>
 <div class="paragraph">
-<p>The repository with both the community and enterprise sources is located on <a href="https://www.github.com/droolsjbpm/kie-docs">GitHub</a>. This repository is publicly accessible, but only members of the KIE/BxMS development and documentation teams can commit to it.</p>
+<p>The repository with both the community and enterprise sources is located on <a href="https://www.github.com/droolsjbpm/kie-docs">GitHub</a>. This repository is publicly accessible, but only members of the KIE/BPM development and documentation teams can commit to it.</p>
 </div>
 <div class="paragraph">
 <p>Previously, the enterprise documentation sources were hosted in an internal GitLab instance.<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnote_2" title="View footnote.">2</a>]</sup> This repository is no longer used for development and does not accept any further code changes.</p>
@@ -811,7 +824,7 @@ To contribute to the repository, follow the instructions in <a href="#_contribut
 <div class="sect3">
 <h4 id="_branches">1.2.3. Branches</h4>
 <div class="paragraph">
-<p>The branches in the KIE/BxMS documentation repository are named as follows, and contain the following versions of the documentation:</p>
+<p>The branches in the KIE/BPM documentation repository are named as follows, and contain the following versions of the documentation:</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1235,7 +1248,7 @@ $ atom $FILE_NAME #Opens the file in the Atom text editor, for example</code></p
 <li>
 <p>Make the changes in the file and save your work.</p>
 <div class="paragraph">
-<p>When writing, be sure you follow all the <a href="#_requirements">requirements</a>. If not, you can be asked to modify your contribution. You can also receive a pull request against the branch in your repository that rectifies the problems.</p>
+<p>When writing, be sure you follow all the <a href="#style_requirements">requirements</a>. If not, you can be asked to modify your contribution. You can also receive a pull request against the branch in your repository that rectifies the problems.</p>
 </div>
 </li>
 <li>
@@ -1927,10 +1940,10 @@ You must apply the changes from oldest to newest, otherwise you can get merge co
 </div>
 </div>
 <div class="sect1">
-<h2 id="_building_and_previewing">4. Building and Previewing</h2>
+<h2 id="building_locally">4. Building and Previewing</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="building_locally">4.1. Building Locally with Asciidoctor</h3>
+<h3 id="_building_locally_with_asciidoctor">4.1. Building Locally with Asciidoctor</h3>
 <div class="paragraph">
 <p>Build books locally using Asciidoctor to check how the book renders with your changes, before pushing to the repository. For more information about Asciidoctor, see <a href="#_system_requirements">System Requirements</a>.</p>
 </div>
@@ -2016,7 +2029,7 @@ Do not push the symlinks into your topic branch. The symlinks may cause the Jenk
 </div>
 </div>
 <div class="sect2">
-<h3 id="building_locally">4.2. Building Locally with ccutil</h3>
+<h3 id="_building_locally_with_ccutil">4.2. Building Locally with ccutil</h3>
 <div class="paragraph">
 <p>Build books locally using ccutil to check how the book renders with your changes, before pushing to the repository. For more information about ccutil, see <a href="#_system_requirements">System Requirements</a>.</p>
 </div>
@@ -2386,7 +2399,7 @@ The following checks are mandatory.
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
-<p>Consult QE whether the new version of KIE/BxMS supports a new version of EAP. If so, modify the value of the <code>{EAP_VERSION}</code> attribute in <code>docs/shared-kie-docs/src/main/resources/Product/document-attributes.adoc</code>. If there is enough time before the release, go over the documentation set and verify if any hard-coded EAP versions should be replaced with <code>{EAP_VERSION}</code>.</p>
+<p>Consult QE whether the new version of KIE/BPM supports a new version of EAP. If so, modify the value of the <code>{EAP_VERSION}</code> attribute in <code>docs/shared-kie-docs/src/main/resources/Product/document-attributes.adoc</code>. If there is enough time before the release, go over the documentation set and verify if any hard-coded EAP versions should be replaced with <code>{EAP_VERSION}</code>.</p>
 </div>
 <div class="paragraph">
 <p>Affected books:</p>
@@ -3251,7 +3264,7 @@ The community product configurations can not be built using ccutil.
 <p>Comment on the whole change set under the <strong>Conversation</strong> tab with suggestions or requirements that apply to the entire change set.</p>
 </li>
 <li>
-<p>When reviewing, make sure the contribution meets all of the enterprise <a href="#_requirements">requirements</a>.</p>
+<p>When reviewing, make sure the contribution meets all of the enterprise <a href="#style_requirements">requirements</a>.</p>
 </li>
 </ul>
 </div>
@@ -3263,7 +3276,7 @@ The community product configurations can not be built using ccutil.
 <p>If the contributor addressed all the problems, or no problems were found, accept the pull request by clicking <strong>Merge pull request</strong>.</p>
 </li>
 <li>
-<p>If the changes in the pull request should be applied to other branches as well, <a href="#_cherry_picking_changes_between_branches">cherry-pick</a> the changes to the relevant branches.</p>
+<p>If the changes in the pull request should be applied to other branches as well, <a href="#cherry_picking_branches">cherry-pick</a> the changes to the relevant branches.</p>
 </li>
 </ol>
 </div>
@@ -3274,7 +3287,7 @@ The community product configurations can not be built using ccutil.
 </div>
 </div>
 </div>
-<h1 id="_style_requirements" class="sect0">Style Requirements</h1>
+<h1 id="style_requirements" class="sect0">Style Requirements</h1>
 <div class="openblock partintro">
 <div class="content">
 <em>Acceptance criteria for internal and external contributions</em>
@@ -3391,7 +3404,7 @@ $BUILD_PATH fails to validate</code></pre>
 <p>This error is resolved by adding and defining a document attribute.</p>
 </div>
 <div class="paragraph">
-<p>For information about other document attributes used in KIE/BxMS documentation, see <a href="#document_attributes">Attributes (Variables)</a>.</p>
+<p>For information about other document attributes used in KIE/BPM documentation, see <a href="#document_attributes">Attributes (Variables)</a>.</p>
 </div>
 <h4 id="_procedure_16" class="float">Procedure</h4>
 <div class="olist arabic">
@@ -3650,7 +3663,7 @@ For details, see xref:projects_con_definitions[].</code></pre>
 <h2 id="document_attributes">8. Attributes (Variables)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The KIE/BxMS documentation uses many attributes (variables in other languages) to make writing easier and more consistent. When authoring or modifying content, always use attributes instead of writing the text they replace in full. This way, updating the documentation to a new version or changing the URLs of all books can be done easily.</p>
+<p>The KIE/BPM documentation uses many attributes (variables in other languages) to make writing easier and more consistent. When authoring or modifying content, always use attributes instead of writing the text they replace in full. This way, updating the documentation to a new version or changing the URLs of all books can be done easily.</p>
 </div>
 <div class="exampleblock">
 <div class="title">Example 1. Using Attributes</div>
@@ -4069,7 +4082,7 @@ Do not use this attribute unless necessary. Use <code>{PRODUCT_VERSION}</code> i
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
-<p>The KIE/BxMS product name, dependent on which product the documentation is built for.</p>
+<p>The KIE/BPM product name, dependent on which product the documentation is built for.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 11. Values of Attribute</caption>
@@ -4426,7 +4439,7 @@ Do not use unless necessary. Use <code>{EAP}</code> instead.
 <div class="sect2">
 <h3 id="_book_names">8.4. Book Names</h3>
 <div class="paragraph">
-<p>The full names of the books from the KIE/BxMS documentation set.</p>
+<p>The full names of the books from the KIE/BPM documentation set.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4894,7 +4907,7 @@ Do not use unless necessary. Use <code>{EAP}</code> instead.
 <div class="sect2">
 <h3 id="_book_urls">8.6. Book URLs</h3>
 <div class="paragraph">
-<p>The full URLs to the current versions of the books in the KIE/BxMS documentation set.</p>
+<p>The full URLs to the current versions of the books in the KIE/BPM documentation set.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -5326,7 +5339,7 @@ This book is published only for the BPM Suite.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-03-02 17:21:53 CET
+Last updated 2017-03-02 17:21:54 CET
 </div>
 </div>
 </body>
