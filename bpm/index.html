@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.4">
-<title>KIE/BPM Internal Documentation Contributor Guide</title>
+<title>KIE/BPM Documentation Contributor Guide</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -420,7 +420,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
-<h1>KIE/BPM Internal Documentation Contributor Guide</h1>
+<h1>KIE/BPM Documentation Contributor Guide</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -465,36 +465,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#building_locally">4. Building and Previewing</a>
 <ul class="sectlevel2">
 <li><a href="#_building_locally_with_asciidoctor">4.1. Building Locally with Asciidoctor</a></li>
-<li><a href="#_building_locally_with_ccutil">4.2. Building Locally with ccutil</a></li>
-<li><a href="#_building_locally_with_maven">4.3. Building Locally with Maven</a></li>
-<li><a href="#_building_in_pantheon">4.4. Building in Pantheon</a></li>
+<li><a href="#_building_locally_with_maven">4.2. Building Locally with Maven</a></li>
 </ul>
 </li>
-<li><a href="#_publishing">5. Publishing</a>
+<li><a href="#_issue_tracker_workflows">5. Issue Tracker Workflows</a>
 <ul class="sectlevel2">
-<li><a href="#_pre_publishing_checklist">5.1. Pre-Publishing Checklist</a></li>
-<li><a href="#_pantheon">5.2. Pantheon</a>
+<li><a href="#_jira">5.1. JIRA</a>
 <ul class="sectlevel3">
-<li><a href="#_publishing_books_using_pantheon">5.2.1. Publishing Books Using Pantheon</a></li>
-<li><a href="#_pantheon_roles_and_permissions">5.2.2. Pantheon Roles and Permissions</a></li>
+<li><a href="#jira-introduction-technical">5.1.1. JIRA Introduction</a></li>
+<li><a href="#bxmsdoc-issue-lifecycle-technical">5.1.2. BXMSDOC Issue Life cycle</a></li>
+<li><a href="#review-sub-task-lifecycle-technical">5.1.3. Review Status Life Cycle</a></li>
+<li><a href="#addressing-jira-issue-technical">5.1.4. Addressing JIRA Issue</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#_issue_tracker_workflows">6. Issue Tracker Workflows</a>
-<ul class="sectlevel2">
-<li><a href="#_jira">6.1. JIRA</a>
+<li><a href="#_github">5.2. GitHub</a>
 <ul class="sectlevel3">
-<li><a href="#jira-introduction-technical">6.1.1. JIRA Introduction</a></li>
-<li><a href="#bxmsdoc-issue-lifecycle-technical">6.1.2. BXMSDOC Issue Life cycle</a></li>
-<li><a href="#review-sub-task-lifecycle-technical">6.1.3. Review Status Life Cycle</a></li>
-<li><a href="#addressing-jira-issue-technical">6.1.4. Addressing JIRA Issue</a></li>
-</ul>
-</li>
-<li><a href="#_github">6.2. GitHub</a>
-<ul class="sectlevel3">
-<li><a href="#gitlab-introduction-technical">6.2.1. GitHub Introduction</a></li>
-<li><a href="#reviewing-pull-request-writers-technical">6.2.2. Reviewing Pull Request (Writers)</a></li>
+<li><a href="#gitlab-introduction-technical">5.2.1. GitHub Introduction</a></li>
 </ul>
 </li>
 </ul>
@@ -503,34 +489,33 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#style_requirements">Style Requirements</a>
 <ul class="sectlevel1">
-<li><a href="#mod_doc_conventions">7. Modular Documentation Conventions</a>
+<li><a href="#mod_doc_conventions">6. Modular Documentation Conventions</a>
 <ul class="sectlevel2">
-<li><a href="#_anchor_names_and_file_names">7.1. Anchor Names and File Names</a></li>
-<li><a href="#task_reusing-modules">7.2. Reusing Modules in Assemblies</a></li>
+<li><a href="#_anchor_names_and_file_names">6.1. Anchor Names and File Names</a></li>
+<li><a href="#task_reusing-modules">6.2. Reusing Modules in Assemblies</a></li>
 </ul>
 </li>
-<li><a href="#document_attributes">8. Attributes (Variables)</a>
+<li><a href="#document_attributes">7. Attributes (Variables)</a>
 <ul class="sectlevel2">
-<li><a href="#_general_usage">8.1. General Usage</a></li>
-<li><a href="#_versioning">8.2. Versioning</a></li>
-<li><a href="#_product_names">8.3. Product Names</a></li>
-<li><a href="#_book_names">8.4. Book Names</a></li>
-<li><a href="#_url_components">8.5. URL Components</a></li>
-<li><a href="#_book_urls">8.6. Book URLs</a></li>
+<li><a href="#_general_usage">7.1. General Usage</a></li>
+<li><a href="#_versioning">7.2. Versioning</a></li>
+<li><a href="#_product_names">7.3. Product Names</a></li>
+<li><a href="#_book_names">7.4. Book Names</a></li>
+<li><a href="#_url_components">7.5. URL Components</a></li>
+<li><a href="#_book_urls">7.6. Book URLs</a></li>
 </ul>
 </li>
-<li><a href="#_corporate_specific_requirements">9. Corporate-Specific Requirements</a></li>
+<li><a href="#_corporate_specific_requirements">8. Corporate-Specific Requirements</a></li>
 </ul>
 </li>
 <li><a href="#_other_information">Other Information</a>
 <ul class="sectlevel1">
-<li><a href="#_contact_information">10. Contact Information</a>
+<li><a href="#_contact_information">9. Contact Information</a>
 <ul class="sectlevel2">
-<li><a href="#_community">10.1. Community</a></li>
-<li><a href="#_enterprise">10.2. Enterprise</a></li>
+<li><a href="#_community">9.1. Community</a></li>
+<li><a href="#_enterprise">9.2. Enterprise</a></li>
 </ul>
 </li>
-<li><a href="#_sme_qe_contacts">11. SME, QE Contacts</a></li>
 </ul>
 </li>
 <li><a href="#_version_information">Appendix A: Version Information</a></li>
@@ -542,7 +527,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="paragraph">
 <p>For KIE/BPM
-documentation team members</p>
+contributors</p>
 </div>
 </div>
 </div>
@@ -666,21 +651,6 @@ documentation team members</p>
 <h4 id="_optional">1.1.2. Optional</h4>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">ccutil</dt>
-<dd>
-<p>A tool whose output greatly resembles the final document that is generated by Pantheon and pushed to production. Given this, it is the superior option when verifying content quality. However, it is much slower because it converts the input to DocBook first, and requires Red Hat brand packages and other tools that must be downloaded first.</p>
-<div class="paragraph">
-<p>To install ccutil, follow the instructions in the <a href="https://pantheon.cee.redhat.com/help/user-guide/#ccutil-install">Pantheon User Guide</a>.</p>
-</div>
-<div class="paragraph">
-<p>If you encounter a Ruby-related error while running ccutil, try installing the following packages:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre># yum install ruby-devel rubygem-nokogiri</pre>
-</div>
-</div>
-</dd>
 <dt class="hdlist1">Meld</dt>
 <dd>
 <p>A graphical tool for comparing files. This tool is useful for comparing Git revisions and resolving merge conflicts.</p>
@@ -1386,7 +1356,7 @@ After you select to compare within your own fork, the base fork selection disapp
 </div>
 </li>
 <li>
-<p>In the pull request, add a link to the documentation JIRA and a link to the rendered output from your <a href="https://mojo.redhat.com/docs/DOC-14590">shared public directory</a>.</p>
+<p>In the pull request, add links to any needed documentation resources, such as a related JIRA or a shared public directory with the rendered document preview.</p>
 </li>
 <li>
 <p>After SME and peer reviews are complete, merge the pull request in your fork.</p>
@@ -1634,7 +1604,7 @@ $ git push</code></pre>
 </div>
 </li>
 <li>
-<p>In the pull request, add a link to the documentation JIRA and a link to the rendered output from your <a href="https://mojo.redhat.com/docs/DOC-14590">shared public directory</a>.</p>
+<p>In the pull request, add links to any needed documentation resources, such as a related JIRA or a shared public directory with the rendered document preview.</p>
 </li>
 <li>
 <p>Notify the gatekeeper that the pull request is ready to be reviewed and merged.</p>
@@ -2029,82 +1999,7 @@ Do not push the symlinks into your topic branch. The symlinks may cause the Jenk
 </div>
 </div>
 <div class="sect2">
-<h3 id="_building_locally_with_ccutil">4.2. Building Locally with ccutil</h3>
-<div class="paragraph">
-<p>Build books locally using ccutil to check how the book renders with your changes, before pushing to the repository. For more information about ccutil, see <a href="#_system_requirements">System Requirements</a>.</p>
-</div>
-<h4 id="_prerequisites_8" class="float">Prerequisites</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>ccutil. For more information, see <a href="#_system_requirements">System Requirements</a>.</p>
-</li>
-</ul>
-</div>
-<h4 id="_procedure_10" class="float">Procedure</h4>
-<div class="paragraph">
-<p>To build a book on your local machine, follow these steps:</p>
-</div>
-<div class="olist arabic">
-<div class="title">Building and Previewing a Book Using ccutil</div>
-<ol class="arabic">
-<li>
-<p>Navigate to <a href="#product_directories">a product subdirectory</a> inside the book&#8217;s directory (For example: <code><em>$REPOSITORY_PATH</em>/docs/product-installation-guide/src/main/asciidoc/bpms</code> for the Red Hat JBoss BPM Suite Installation Guide).</p>
-</li>
-<li>
-<p>Follow the instructions in the <a href="https://gitlab.cee.redhat.com/red-hat-jboss-bxms-documentation/proposal-d/tree/master">proposal-d</a> repository for setting up the <code>bxms-build</code> script.</p>
-</li>
-<li>
-<p>Change into the <code>bpms</code> or <code>brms</code> directory.</p>
-</li>
-<li>
-<p>Build and preview the source by running:</p>
-<div class="openblock">
-<div class="content">
-<div class="literalblock">
-<div class="content">
-<pre>$ bxms-build compile --lang en-US --open</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This command automatically launches your default browser with the output. To build without previewing, remove the <code>--open</code> flag from the command. For more information, see <a href="https://pantheon.cee.redhat.com/help/user-guide/#ccutil-commands">ccutil commands</a> in the Pantheon User Guide.</p>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Alternatively, preview the source in web browser:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ firefox build/tmp/en-US/html-single/index.html</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Replace <code>firefox</code> with a browser of your choice.
-</td>
-</tr>
-</table>
-</div>
-</li>
-</ol>
-</div>
-<h4 id="_related_information_4" class="float">Related Information</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://pantheon.cee.redhat.com/help/user-guide/#ccutil-commands">List of ccutil commands</a> on the Pantheon help site.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_building_locally_with_maven">4.3. Building Locally with Maven</h3>
+<h3 id="_building_locally_with_maven">4.2. Building Locally with Maven</h3>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -2117,7 +2012,7 @@ Only community books (those containing a product subdirectory named <code>commun
 </tr>
 </table>
 </div>
-<h4 id="_prerequisites_9" class="float">Prerequisites</h4>
+<h4 id="_prerequisites_8" class="float">Prerequisites</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2128,7 +2023,7 @@ Only community books (those containing a product subdirectory named <code>commun
 </li>
 </ul>
 </div>
-<h4 id="_procedure_11" class="float">Procedure</h4>
+<h4 id="_procedure_10" class="float">Procedure</h4>
 <div class="olist arabic">
 <div class="title">Building and Previewing a Book Using Maven</div>
 <ol class="arabic">
@@ -2177,563 +2072,15 @@ Replace <code>firefox</code> with a browser of your choice.
 </ol>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_building_in_pantheon">4.4. Building in Pantheon</h3>
-<div class="paragraph">
-<p>You can build and preview books in <a href="https://pantheon.cee.redhat.com">Pantheon</a>, the internal CCS build system. Because Pantheon only supports building the mainline branches (<code>$VERSION-preview</code> or <code>$VERSION-stage</code>) of the repository, use Pantheon when you want to publish or review the current stage of the book before publishing.</p>
-</div>
-<h4 id="_prerequisites_10" class="float">Prerequisites</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Access to <a href="https://pantheon.cee.redhat.com">Pantheon</a> (Red Hat associates only).</p>
-</li>
-<li>
-<p>The latest documentation is present in the Gitlab repository. For further information, see the <code>bxms-translate</code> section of the <a href="https://gitlab.cee.redhat.com/red-hat-jboss-bxms-documentation/proposal-d/tree/master">proposal-d</a> repository.</p>
-</li>
-</ul>
-</div>
-<h4 id="_procedure_12" class="float">Procedure</h4>
-<div class="olist arabic">
-<div class="title">Building and Previewing a Book on Pantheon</div>
-<ol class="arabic">
-<li>
-<p>Go to the relevant page on Pantheon with titles ("a title" is a term in Pantheon that means a book build job for a particular product version):</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The <a href="https://pantheon.cee.redhat.com/\#/titles/red-hat-jboss-bpm-suite">BPM Suite</a> title page.</p>
-</li>
-<li>
-<p>The <a href="https://pantheon.cee.redhat.com/#/titles/red-hat-jboss-brms">BRMS</a> title page.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Find the title that you want to rebuild and click the adjacent <strong>Rebuild</strong> button (two arrows in a circle, the rightmost button in the cluster on the right side).</p>
-<div class="paragraph">
-<p>The build is queued, and the page refreshes automatically to show progress. The number in the rebuild icon indicates the position in the build queue (lower is better).</p>
-</div>
-</li>
-<li>
-<p>Click the <strong>View Document in Preview</strong> button (a globe icon, the leftmost button in the same cluster as above).</p>
-</li>
-</ol>
-</div>
-<h4 id="_related_information_5" class="float">Related Information</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://pantheon.cee.redhat.com/#/help">Pantheon User Guide</a>.</p>
-</li>
-</ul>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_publishing">5. Publishing</h2>
+<h2 id="_issue_tracker_workflows">5. Issue Tracker Workflows</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_pre_publishing_checklist">5.1. Pre-Publishing Checklist</h3>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-This section is obsolete, and will be updated shortly.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Before publishing a new major or minor version of the enterprise documentation set, perform the following checks to ensure the updated version of the documentation is correct.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The following checks are mandatory.
-</td>
-</tr>
-</table>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Ensure the Maven artifacts match the updated product.</dt>
-<dd>
-<div class="paragraph">
-<p>Affected books:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Installation Guide (<em>Supported Component Versions</em>)</p>
-</li>
-<li>
-<p>Getting Started Guide</p>
-</li>
-<li>
-<p>Possibly others</p>
-</li>
-</ul>
-</div>
-</dd>
-<dt class="hdlist1">Ensure product version numbers were updated.</dt>
-<dd>
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
-<p>Update the value of the <code>{PRODUCT_VERSION}</code> attribute in <code>docs/shared-kie-docs/src/main/asciidoc/document-attributes.adoc</code>.  If there is enough time before the release, go over the documentation set and verify if any hard-coded product versions should be replaced with <code>{PRODUCT_VERSION}</code>.</p>
-</div>
-<div class="paragraph">
-<p>Affected books:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>All</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</dd>
-<dt class="hdlist1">Consult with Engineering and QE what classes or API end-points were deprecated, if any.</dt>
-<dd>
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
-<p>Affected books:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Development Guide</p>
-</li>
-<li>
-<p>Migration Guide</p>
-</li>
-<li>
-<p>Possibly others</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</dd>
-<dt class="hdlist1">Ensure all links in the documentation are not broken.</dt>
-<dd>
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
-<p>Make sure links point to pages that exist and do not return HTTP error 404 or a similar error. This check is automatically performed by the internal Emender tool:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Page with <a href="http://ccs-jenkins.gsslab.brq.redhat.com:8080/view/Tests%20-%20BPMS/">BPM Suite tests</a></p>
-</li>
-<li>
-<p>Page with <a href="http://ccs-jenkins.gsslab.brq.redhat.com:8080/view/Tests%20-%20BRMS/">BRMS tests</a></p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You must <a href="https://mojo.redhat.com/docs/DOC-1131907#jive_content_id_Filing_an_Operational_Request">file an operational request</a> for a new batch of test jobs for Emender for each new version of the documentation.</p>
-</div>
-<div class="paragraph">
-<p>When filing the request, enter the following information:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>What product you want to test: BRMS, BPM Suite</p>
-</li>
-<li>
-<p>What books you want to test: <em>Enumerate all books</em></p>
-</li>
-<li>
-<p>Where the repository is located: <a href="https://gitlab.cee.redhat.com/red-hat-jboss-bxms-documentation/bxms-docs" class="bare">https://gitlab.cee.redhat.com/red-hat-jboss-bxms-documentation/bxms-docs</a></p>
-</li>
-<li>
-<p>On what branches the tests should be run: <code>$PRODUCT_VERSION-preview</code></p>
-</li>
-<li>
-<p>What tests you want performed: Dead links</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Affected books:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>All</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</dd>
-<dt class="hdlist1">Verify the supported EAP version and update if necessary.</dt>
-<dd>
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
-<p>Consult QE whether the new version of KIE/BPM supports a new version of EAP. If so, modify the value of the <code>{EAP_VERSION}</code> attribute in <code>docs/shared-kie-docs/src/main/resources/Product/document-attributes.adoc</code>. If there is enough time before the release, go over the documentation set and verify if any hard-coded EAP versions should be replaced with <code>{EAP_VERSION}</code>.</p>
-</div>
-<div class="paragraph">
-<p>Affected books:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>All</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</dd>
-<dt class="hdlist1">Create a chapter in the Migration Guide.</dt>
-<dd>
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
-<p>If there is a need, create a new chapter for migrating from existing versions to the current one. This chapter should include instructions how to migrate, notable changes, and warnings about caveats.</p>
-</div>
-<div class="paragraph">
-<p>Affected books:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Migration Guide</p>
-</li>
-<li>
-<p>Possibly Release Notes</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</dd>
-<dt class="hdlist1">Bump the release in the REBUILT variable.</dt>
-<dd>
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
-<p>In all books, update the <code>:REBUILT:</code> variable in the <code>docs/shared-kie-docs/src/main/asciidoc/document-attributes.adoc</code> file with the timestamp of the latest rebuild. This change is propagated to all the books.</p>
-</div>
-<div class="paragraph">
-<p>Affected books:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>All</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</dd>
-<dt class="hdlist1">Publish sprint report.</dt>
-<dd>
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
-<p>The DPM, or someone appointed by the DPM, should release a sprint report and send it to <a href="mailto:brms-docs@redhat.com">brms-docs@redhat.com</a> and <a href="mailto:bpms-pm-list@redhat.com">bpms-pm-list@redhat.com</a>.</p>
-</div>
-</div>
-</div>
-</dd>
-</dl>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_pantheon">5.2. Pantheon</h3>
+<h3 id="_jira">5.1. JIRA</h3>
 <div class="sect3">
-<h4 id="_publishing_books_using_pantheon">5.2.1. Publishing Books Using Pantheon</h4>
-<div class="paragraph">
-<p>Starting with enterprise version 6.4, the documentation is published exclusively through the internal tool called Pantheon.</p>
-</div>
-<h5 id="_prerequisites_11" class="float">Prerequisites</h5>
-<div class="ulist">
-<ul>
-<li>
-<p>A Pantheon account with publishing permissions. For more information, see <a href="#_pantheon_roles_and_permissions">Pantheon Roles and Permissions</a>.</p>
-</li>
-<li>
-<p>A GitLab account with proper permissions. For more information, see TODO.</p>
-</li>
-</ul>
-</div>
-<h5 id="_procedure_13" class="float">Procedure</h5>
-<div class="olist arabic">
-<div class="title">Publishing a Documentation Revision Using Pantheon</div>
-<ol class="arabic">
-<li>
-<p>In the Enterprise GitLab repository, check out the preview branch for the product version you want to publish. With version 7.0, for example:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ git checkout 7.0-preview</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Update revision history files of all the books you want to publish:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Open the <code><em>$REPOSITORY_PATH</em>/docs/shared-kie-docs/src/main/asciidoc/document-attributes.adoc</code> file with a text editor of your choice. Then update the <code>:REBUILT:</code> variable.</p>
-</li>
-<li>
-<p>Save the file.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Commit the changes with a descriptive commit message, for example:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ git commit -m "Update rebuilt variables" docs/shared-kie-docs/src/main/asciidoc/document-attributes.adoc</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Tag the commit with a tag that describes which version was published and the current date:</p>
-<div class="openblock">
-<div class="content">
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ git tag "$VERSION-rel-$DATE"</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In this example, <code><em>$VERSION</em></code> is the version of the product, and <code><em>$DATE</em></code> is the current date in the ISO 8601 format (<code>YYYY-MM-DD</code>). For example, the following tag is for version 7.0, which is released on Aug 22 2018:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ git tag "7.0-rel-2018-08-22"</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Additionally, if you are publishing drafts, for example an alpha draft, use the following format:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ git tag "$VERSION-$BUILD-rel-$DATE-guide"</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>For example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ git tag "7.0-alpha-1-rel-28-jun-2018-getting-started-guide"</code></pre>
-</div>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Push the changes and tags:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ git push
-$ git push --tags</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Check out the stage branch for the same product version and rebase it against the preview branch of the same version, for example:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ git checkout 7.0-stage
-$ git rebase 7.0-preview</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Push the changes in the stage branch:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ git push</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Navigate to the <a href="https://pantheon.cee.redhat.com">Pantheon</a> page of the relevant product and wait for stage build jobs to finish&#8212;&#8203;these were started automatically.</p>
-</li>
-<li>
-<p>Preview the books that you want to publish:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Click <span class="image"><img src="topics/shared/images/pantheon-globe-icon.png" alt="the globe icon"></span> on the row with the name of the book in the Pantheon title list to preview the book.</p>
-</li>
-<li>
-<p>In the book, locate the new line in the revision history you added earlier in this process to ensure the book was successfully updated.</p>
-</li>
-<li>
-<p>Repeat for all the books you want publish.</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the book is not updated, make sure you followed all steps in this procedure. If you are sure you did everything correctly, file a ticket on <a href="https://redhat.service-now.com">Helpdesk</a>.
-</td>
-</tr>
-</table>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Click the <strong>Publish</strong> button to publish the book. Wait for up to a few minutes for the book to be uploaded to the Customer Portal.</p>
-</li>
-</ol>
-</div>
-<h5 id="_related_information_6" class="float">Related Information</h5>
-<div class="ulist">
-<ul>
-<li>
-<p>Pantheon build jobs for the product:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://pantheon.cee.redhat.com/#/titles/red-hat-jboss-bpm-suite">BPM Suite</a>.</p>
-</li>
-<li>
-<p><a href="https://pantheon.cee.redhat.com/#/titles/red-hat-jboss-brms">BRMS</a>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><a href="https://pantheon.cee.redhat.com/#/help/workflow-publishing">Staging and publishing</a> chapter in the Pantheon User Guide.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_pantheon_roles_and_permissions">5.2.2. Pantheon Roles and Permissions</h4>
-<div class="paragraph">
-<p>To efficiently manage titles in Pantheon and publish documentation to the Customer Portal, documentation team members should have the following permissions:</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The permissions are explained in detail in the <a href="https://pantheon.cee.redhat.com/#/help/support-permissions">Requesting Permissions</a> section of the <em>Pantheon User Guide</em>.
-</td>
-</tr>
-</table>
-</div>
-<h5 id="_all_writers" class="float">All Writers</h5>
-<div class="paragraph">
-<p>This setting allows all documentation team members to publish content:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Title Publisher</p>
-</li>
-</ul>
-</div>
-<h5 id="_documentation_administrator" class="float">Documentation Administrator</h5>
-<div class="paragraph">
-<p>In addition to the Documentation Program Manager (DPM), one other person in the team should have the following permissions, which allow creating, updating, and deleting the titles in Pantheon:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Title Manager</p>
-</li>
-<li>
-<p>Title Publisher</p>
-</li>
-</ul>
-</div>
-<h5 id="_dpm" class="float">DPM</h5>
-<div class="paragraph">
-<p>The DPM should have all the permissions that apply to handling the documentation set:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Title Manager</p>
-</li>
-<li>
-<p>Title Publisher</p>
-</li>
-<li>
-<p>Translation Title Manager</p>
-</li>
-<li>
-<p>Translation Title Publisher</p>
-</li>
-<li>
-<p>User Manager</p>
-</li>
-</ul>
-</div>
-<h5 id="_translation_team_manager" class="float">Translation Team Manager</h5>
-<div class="paragraph">
-<p>Since the translations of the documentation set are handled by a separate team, the Translation Team&#8217;s manager should have at least the following permissions:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Translation Title Manager</p>
-</li>
-<li>
-<p>Translation Title Publisher</p>
-</li>
-<li>
-<p>User Manager</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_issue_tracker_workflows">6. Issue Tracker Workflows</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_jira">6.1. JIRA</h3>
-<div class="sect3">
-<h4 id="jira-introduction-technical">6.1.1. JIRA Introduction</h4>
+<h4 id="jira-introduction-technical">5.1.1. JIRA Introduction</h4>
 <div class="paragraph">
 <p>The issues with the product documentation are hosted on the JBoss <a href="https://issues.jboss.org">JIRA</a>, an issue tracking system used by multiple Red Hat JBoss Middleware products. Software-related issues are hosted on JIRA as well. For detailed instructions on how to create a product documentation (BXMS) Jira, see the <a href="https://mojo.redhat.com/docs/DOC-1081009">BxMS documentation</a> Mojo page.</p>
 </div>
@@ -2758,26 +2105,6 @@ The permissions are explained in detail in the <a href="https://pantheon.cee.red
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Issues, plans, and tasks for the BPM Suite, BRMS, and Business Resource Planner documentation.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You will likely be assigned to issues from this project only, as this is where most of the BxMS documentation team&#8217;s work is tracked.
-</td>
-</tr>
-</table>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><a href="https://issues.jboss.org/projects/BPMSPL">BPMSPL</a></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Enterprise features planned for the next release. These issues often require changes in documentation, so they are typically linked to <a href="#bxmsdoc-technical">BXMSDOC</a> issues that track how the features are documented.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2832,7 +2159,7 @@ You will likely be assigned to issues from this project only, as this is where m
 </table>
 </div>
 <div class="sect3">
-<h4 id="bxmsdoc-issue-lifecycle-technical">6.1.2. BXMSDOC Issue Life cycle</h4>
+<h4 id="bxmsdoc-issue-lifecycle-technical">5.1.2. BXMSDOC Issue Life cycle</h4>
 <div class="paragraph">
 <p>During its standard life cycle, an issue in the documentation JIRA project (<a href="#bxmsdoc-technical">BXMSDOC</a>) goes through the following statuses. Details are provided in the <a href="#jira-status-descriptions-technical">BXMSDOC JIRA Status Descriptions</a>.</p>
 </div>
@@ -2911,7 +2238,7 @@ You will likely be assigned to issues from this project only, as this is where m
 </div>
 </div>
 <div class="sect3">
-<h4 id="review-sub-task-lifecycle-technical">6.1.3. Review Status Life Cycle</h4>
+<h4 id="review-sub-task-lifecycle-technical">5.1.3. Review Status Life Cycle</h4>
 <div class="paragraph">
 <p>The review sub-tasks (SME review, peer review, QE review) go through the following statuses. Details are provided in the <a href="#review-status-descriptions-technical">Review Status Descriptions</a>.</p>
 </div>
@@ -2946,8 +2273,8 @@ You will likely be assigned to issues from this project only, as this is where m
 </div>
 </div>
 <div class="sect3">
-<h4 id="addressing-jira-issue-technical">6.1.4. Addressing JIRA Issue</h4>
-<h5 id="_prerequisites_12" class="float">Prerequisites</h5>
+<h4 id="addressing-jira-issue-technical">5.1.4. Addressing JIRA Issue</h4>
+<h5 id="_prerequisites_9" class="float">Prerequisites</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -2955,7 +2282,7 @@ You will likely be assigned to issues from this project only, as this is where m
 </li>
 </ul>
 </div>
-<h5 id="_procedure_14" class="float">Procedure</h5>
+<h5 id="_procedure_11" class="float">Procedure</h5>
 <div class="olist arabic">
 <div class="title">Addressing JIRA Issue</div>
 <ol class="arabic">
@@ -3109,7 +2436,7 @@ Review: <em>$NAME_OF_ISSUE</em></code> in the Summary, where <code><em>$NAME_OF_
 </li>
 </ol>
 </div>
-<h5 id="_related_information_7" class="float">Related Information</h5>
+<h5 id="_related_information_4" class="float">Related Information</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -3120,168 +2447,11 @@ Review: <em>$NAME_OF_ISSUE</em></code> in the Summary, where <code><em>$NAME_OF_
 </div>
 </div>
 <div class="sect2">
-<h3 id="_github">6.2. GitHub</h3>
+<h3 id="_github">5.2. GitHub</h3>
 <div class="sect3">
-<h4 id="gitlab-introduction-technical">6.2.1. GitHub Introduction</h4>
+<h4 id="gitlab-introduction-technical">5.2.1. GitHub Introduction</h4>
 <div class="paragraph">
 <p>GitHub is not used for tracking issues or development progress of the documentation, only for managing pull requests. To report an issue, use <a href="#jira-introduction-technical">JIRA</a>.</p>
-</div>
-<div class="paragraph">
-<p>Pull requests concerning the enterprise documentation set are internally tracked in JIRA.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="reviewing-pull-request-writers-technical">6.2.2. Reviewing Pull Request (Writers)</h4>
-<div class="paragraph">
-<p>Each pull request is subject to the same review from the Engineering team, and from the CCS Gatekeeper or a writer.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="topics/shared/images/github-pull-request-flowchart.png" alt="github pull request flowchart">
-</div>
-<div class="title">Figure 7. GitHub Pull Request Flowchart</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-A writer can be appointed to perform tasks marked "Gatekeeper," especially in situations when too many contributions must be reviewed in a short time frame.
-</td>
-</tr>
-</table>
-</div>
-<h4 id="_prerequisites_13" class="float">Prerequisites</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>GitHub account with the <a href="https://github.com/kiegroup/">KIE Group</a> membership. To get your account added to the group, <a href="#_contact_information">contact someone</a> from the team.</p>
-</li>
-</ul>
-</div>
-<h4 id="_procedure_15" class="float">Procedure</h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Select a pull request to review from the <a href="https://github.com/kiegroup/kie-docs/pulls">pull requests</a> page.</p>
-</li>
-<li>
-<p>If the pull request is not filed as a solution of an issue that is already tracked in JIRA, create a <a href="https://issues.jboss.org/projects/BXMSDOC">new issue</a> and track the review progress there:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Create an issue of the <strong>Task</strong> type.</p>
-</li>
-<li>
-<p>Enter <code>Pull Request $ID: $DESCRIPTION</code> in the <strong>Summary</strong> field, where <code>$ID</code> is the pull request&#8217;s numeric ID and <code>$DESCRIPTION</code> is a description of the change set.</p>
-</li>
-<li>
-<p>Fill in the pull request&#8217;s URL in the <strong>Git Pull Request</strong> field.</p>
-</li>
-<li>
-<p>Assign the issue to yourself.</p>
-</li>
-<li>
-<p>Add the issue to the sprint when you intend to perform the review&#8212;&#8203;typically the current sprint.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Open the pull request and review the change set (also called <em>the diff</em>) under the <strong>Files changed</strong> tab.</p>
-</li>
-<li>
-<p>Build the document locally and review it:</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Automatic building of the contributions is pending.
-</td>
-</tr>
-</table>
-</div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>In a terminal application, navigate to the product repository.</p>
-</li>
-<li>
-<p>Add the contributor&#8217;s repository as a Git remote:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ git remote add $CONTRIBUTOR https://github.com/$CONTRIBUTOR/kie-docs</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In this example, <code>$CONTRIBUTOR</code> is the contributor&#8217;s user name.</p>
-</div>
-</li>
-<li>
-<p>Fetch the branches from the contributor&#8217;s repository:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ git fetch $CONTRIBUTOR</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Check out the branch in question:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ git checkout $BRANCH</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>For each book, navigate to its directory and <a href="#building_locally">build it locally</a> using Asciidoctor&#8212;&#8203;or ccutil in case of enterprise books&#8212;&#8203;for the relevant product configurations, such as <code>bpms</code>, <code>brms</code> or <code>community</code>.</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The community product configurations can not be built using ccutil.
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>Provide feedback in the pull request:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Comment on individual lines when your suggestion or requirement is very specific and only targets content on that line.</p>
-</li>
-<li>
-<p>Comment on the whole change set under the <strong>Conversation</strong> tab with suggestions or requirements that apply to the entire change set.</p>
-</li>
-<li>
-<p>When reviewing, make sure the contribution meets all of the enterprise <a href="#style_requirements">requirements</a>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Wait for the contributor to provide fixes to the problems you or Engineering found, if any.</p>
-</li>
-<li>
-<p>If the contributor addressed all the problems, or no problems were found, accept the pull request by clicking <strong>Merge pull request</strong>.</p>
-</li>
-<li>
-<p>If the changes in the pull request should be applied to other branches as well, <a href="#cherry_picking_branches">cherry-pick</a> the changes to the relevant branches.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
 </div>
 </div>
 </div>
@@ -3294,7 +2464,7 @@ The community product configurations can not be built using ccutil.
 </div>
 </div>
 <div class="sect1">
-<h2 id="mod_doc_conventions">7. Modular Documentation Conventions</h2>
+<h2 id="mod_doc_conventions">6. Modular Documentation Conventions</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Modular documentation is documentation based on modules, which are reusable building blocks of information with a well-organized structure. The primary types of modules are concept, reference, and procedure modules. Technical writers write modules separately based on module type, and then combine the modules into assemblies. The assembly of modules, often preceded by an introduction, is then generated as a user-story-based document.</p>
@@ -3306,7 +2476,7 @@ The community product configurations can not be built using ccutil.
 <p>For details about how to create content modules and assemblies, see the <a href="https://htmlpreview.github.io/?https://github.com/redhat-documentation/modular-docs/blob/master/modular-docs-manual/modular-docs-manual.html">Modular Documentation Reference Guide</a>.</p>
 </div>
 <div class="sect2">
-<h3 id="_anchor_names_and_file_names">7.1. Anchor Names and File Names</h3>
+<h3 id="_anchor_names_and_file_names">6.1. Anchor Names and File Names</h3>
 <div class="paragraph">
 <p>To optimize modular documentation, follow these guidelines for naming topic anchors and files.</p>
 </div>
@@ -3389,7 +2559,7 @@ Although you can use other formats for naming anchors, the format defined here i
 </div>
 </div>
 <div class="sect2">
-<h3 id="task_reusing-modules">7.2. Reusing Modules in Assemblies</h3>
+<h3 id="task_reusing-modules">6.2. Reusing Modules in Assemblies</h3>
 <div class="paragraph">
 <p>When you create content in modules, you can use the same module multiple times in an assembly without having to replicate information. However, in order to facilitate module reuse, you must embed a document attribute variable in the anchor name for the module and then define that attribute in the assembly each time the reused module appears. If the attribute is not embedded and assigned, an error appears at build time reporting the duplicated anchor ID.</p>
 </div>
@@ -3406,7 +2576,7 @@ $BUILD_PATH fails to validate</code></pre>
 <div class="paragraph">
 <p>For information about other document attributes used in KIE/BPM documentation, see <a href="#document_attributes">Attributes (Variables)</a>.</p>
 </div>
-<h4 id="_procedure_16" class="float">Procedure</h4>
+<h4 id="_procedure_12" class="float">Procedure</h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3660,7 +2830,7 @@ For details, see xref:projects_con_definitions[].</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="document_attributes">8. Attributes (Variables)</h2>
+<h2 id="document_attributes">7. Attributes (Variables)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The KIE/BPM documentation uses many attributes (variables in other languages) to make writing easier and more consistent. When authoring or modifying content, always use attributes instead of writing the text they replace in full. This way, updating the documentation to a new version or changing the URLs of all books can be done easily.</p>
@@ -3687,7 +2857,7 @@ For details, see xref:projects_con_definitions[].</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_general_usage">8.1. General Usage</h3>
+<h3 id="_general_usage">7.1. General Usage</h3>
 <div class="paragraph">
 <p>The attributes in this section are used for modifying the building behavior.</p>
 </div>
@@ -3813,7 +2983,7 @@ endif::[]</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_versioning">8.2. Versioning</h3>
+<h3 id="_versioning">7.2. Versioning</h3>
 <div class="paragraph">
 <p>When releasing a new version of the documentation, check especially the following variables because they may need updating.</p>
 </div>
@@ -4071,7 +3241,7 @@ Do not use this attribute unless necessary. Use <code>{PRODUCT_VERSION}</code> i
 </div>
 </div>
 <div class="sect2">
-<h3 id="_product_names">8.3. Product Names</h3>
+<h3 id="_product_names">7.3. Product Names</h3>
 <div class="paragraph">
 <p>The names of the products frequently referenced in the documentation set.</p>
 </div>
@@ -4437,7 +3607,7 @@ Do not use unless necessary. Use <code>{EAP}</code> instead.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_book_names">8.4. Book Names</h3>
+<h3 id="_book_names">7.4. Book Names</h3>
 <div class="paragraph">
 <p>The full names of the books from the KIE/BPM documentation set.</p>
 </div>
@@ -4767,7 +3937,7 @@ Do not use unless necessary. Use <code>{EAP}</code> instead.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_url_components">8.5. URL Components</h3>
+<h3 id="_url_components">7.5. URL Components</h3>
 <div class="paragraph">
 <p>Components of the URLs of the books and other links. Do not use these attributes in this section anywhere on their own, only as parts of URLs.</p>
 </div>
@@ -4905,7 +4075,7 @@ Do not use unless necessary. Use <code>{EAP}</code> instead.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_book_urls">8.6. Book URLs</h3>
+<h3 id="_book_urls">7.6. Book URLs</h3>
 <div class="paragraph">
 <p>The full URLs to the current versions of the books in the KIE/BPM documentation set.</p>
 </div>
@@ -5241,7 +4411,7 @@ This book is published only for the BPM Suite.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_corporate_specific_requirements">9. Corporate-Specific Requirements</h2>
+<h2 id="_corporate_specific_requirements">8. Corporate-Specific Requirements</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><em>To be written.</em></p>
@@ -5250,10 +4420,10 @@ This book is published only for the BPM Suite.
 </div>
 <h1 id="_other_information" class="sect0">Other Information</h1>
 <div class="sect1">
-<h2 id="_contact_information">10. Contact Information</h2>
+<h2 id="_contact_information">9. Contact Information</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_community">10.1. Community</h3>
+<h3 id="_community">9.1. Community</h3>
 <div class="paragraph">
 <p>If you have questions about the documentation of the community software, join one of the following channels at <code>chat.freenode.net</code>:</p>
 </div>
@@ -5291,7 +4461,7 @@ This book is published only for the BPM Suite.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_enterprise">10.2. Enterprise</h3>
+<h3 id="_enterprise">9.2. Enterprise</h3>
 <div class="paragraph">
 <p>For inquiries about the enterprise documentation, you have several options:</p>
 </div>
@@ -5308,14 +4478,6 @@ This book is published only for the BPM Suite.
 </li>
 </ul>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_sme_qe_contacts">11. SME, QE Contacts</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><em>To be written.</em></p>
 </div>
 </div>
 </div>
@@ -5339,7 +4501,7 @@ This book is published only for the BPM Suite.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-03-02 17:21:54 CET
+Last updated 2017-03-22 15:14:05 CET
 </div>
 </div>
 </body>
