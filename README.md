@@ -2,8 +2,8 @@
 
 ## Table of Contents
 
-*   [Red Hat JBoss AMQ 7 Internal Resources Guide](#Red-Hat-JBoss-AMQ-7)
-*   [KIE/BPM Documentation Contributor Guide](#KIE/BPM)
+*   [Red Hat JBoss AMQ 7 Internal Resources Guide](#red-hat-jboss-amq-7)
+*   [KIE/BPM Documentation Contributor Guide](#kiebpm)
 
 The content in the following pages are used to help documentation teams at Red Hat work with internal tools. They are shared here to help other open source teams in creating their own guidelines.
 
