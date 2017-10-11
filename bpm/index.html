@@ -527,7 +527,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="paragraph">
 <p>For KIE/BPM
-contributors</p>
+contributors.</p>
 </div>
 </div>
 </div>
@@ -1007,7 +1007,7 @@ upstream https://github.com/kiegroup/kie-docs.git (push)</code></pre>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Consider renaming <code>origin</code> your GitHub user name to avoid confusion with other contributors' forks (also named <code>origin</code> by default) when you need to collaborate across forks. To rename your remote, go to the <code>kie-docs</code> repository in your terminal application and run <code>git rename origin $USERNAME</code>. Please note, however, that in any Git commands that refer to <code>origin</code> you will need to use the new remote name instead (example: <code>git push --set-upstream $NEW_NAME $BRANCH_NAME</code>)
+Consider renaming <code>origin</code> your GitHub user name to avoid confusion with other contributors' forks (also named <code>origin</code> by default) when you need to collaborate across forks. To rename your remote, go to the <code>kie-docs</code> repository in your terminal application and run <code>git remote rename origin $USERNAME</code>. Please note that going forward, in any Git commands that refer to <code>origin</code> you will need to use the new remote name instead (example: <code>git push --set-upstream $NEW_NAME $BRANCH_NAME</code>)
 </td>
 </tr>
 </table>
@@ -2478,13 +2478,13 @@ Review: <em>$NAME_OF_ISSUE</em></code> in the Summary, where <code><em>$NAME_OF_
 <div class="sect2">
 <h3 id="_anchor_names_and_file_names">6.1. Anchor Names and File Names</h3>
 <div class="paragraph">
-<p>To optimize modular documentation, follow these guidelines for naming topic anchors and files.</p>
+<p>To optimize modular documentation, follow these guidelines for naming module anchors and files.</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Anchor names</dt>
 <dd>
-<p>Provide an anchor for every module so that it can be identified when reused or cross-referenced. Give the anchor name the same or a similar name to the topic heading, separated by underscores, and indicate the module type (<code>con</code>, <code>ref</code>, <code>proc</code>) at the end of the name. If applicable, consider also providing a module sub-type (<code>create</code>, <code>edit</code>, <code>delete</code>) before the module type:</p>
+<p>Provide an anchor for every module so that it can be identified when reused or cross-referenced. Give the anchor name the same or a similar name to the module heading, separated by underscores, and indicate the module type (<code>con</code>, <code>ref</code>, <code>proc</code>) at the end of the name. If applicable, consider also providing a module sub-type (<code>create</code>, <code>edit</code>, <code>delete</code>) before the module type:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code>[#anchor_name]
@@ -2534,6 +2534,9 @@ Although you can use other formats for naming anchors, the format defined here i
 <dt class="hdlist1">File names</dt>
 <dd>
 <p>Give an informative name separated by dashes and indicate the module type (<code>con</code>, <code>ref</code>, <code>proc</code>) at the end of the name. If applicable, consider also providing a module sub-type (<code>create</code>, <code>edit</code>, <code>delete</code>) right before the module type. Indicating the module type and sub-type at the end of the file name instead of the beginning of the file name results in topics being sorted based on subject matter rather than module type. This assortment can be helpful for managing related content.</p>
+<div class="paragraph">
+<p>For assemblies, however, precede the file name with <code>assembly_</code>. This sets assembled content apart from the content modules.</p>
+</div>
 <div class="ulist">
 <div class="title">Examples</div>
 <ul>
@@ -2551,6 +2554,9 @@ Although you can use other formats for naming anchors, the format defined here i
 </li>
 <li>
 <p><code>guided-decision-tables-limitations-ref.adoc</code>  (Reference module with limitations)</p>
+</li>
+<li>
+<p><code>assembly_guided-decision-tables.adoc</code>  (Assembly of guided decision table modules)</p>
 </li>
 </ul>
 </div>
@@ -2646,9 +2652,6 @@ include::module-B-being-reused.adoc</code></pre>
 <dt class="hdlist1">Module Included Multiple Times in a Single Assembly</dt>
 <dd>
 <p>If a module is included multiple times in the same assembly, then you can define an attribute specific to a section or a chapter of that assembly, such as <code>:context: section-name</code>. This  indicates that the reused module is appearing in the context of that section of the assembly.</p>
-</dd>
-</dl>
-</div>
 <div class="listingblock">
 <div class="title">Assembly</div>
 <div class="content">
@@ -2662,6 +2665,9 @@ include::some-module-not-being-reused.adoc
 :context: section-2-name
 include::module-A-being-reused.adoc</code></pre>
 </div>
+</div>
+</dd>
+</dl>
 </div>
 </li>
 <li>
@@ -2713,7 +2719,7 @@ include::module-A-being-reused.adoc</code></pre>
 <p>The module files contain the following content:</p>
 </div>
 <div class="listingblock">
-<div class="title">projects-con-adoc</div>
+<div class="title">projects-con.adoc</div>
 <div class="content">
 <pre class="highlight"><code>// Module included in the following assemblies: "assembly_projects.adoc", "assembly_assets.adoc"
 
@@ -2789,7 +2795,7 @@ For details, see xref:projects_con_assembly-projects[].</code></pre>
 <p>The module file contains the following content:</p>
 </div>
 <div class="listingblock">
-<div class="title">projects-con-adoc</div>
+<div class="title">projects-con.adoc</div>
 <div class="content">
 <pre class="highlight"><code>[#projects_con_{context}]
 = Projects</code></pre>
